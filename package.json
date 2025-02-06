@@ -1,0 +1,13 @@
+{
+  "name": "my-api-project",
+  "version": "1.0.0",
+  "description": "API project using anbeo.js",
+  "main": "anbeo.js",
+  "scripts": {
+    "start": "node anbeo.js"
+  },
+  "keywords": [],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {}
+}
