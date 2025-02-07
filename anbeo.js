@@ -65,7 +65,7 @@ app.get('/api/status', async (req, res) => {
 
           // Tìm thông tin Boss Name và chỉ lấy những tên boss cụ thể
           if (field.name === 'Boss Name') {
-            if (field.value === 'Dough King' || field.value === 'rip_indra True Form') {
+            if (field.value === 'Dough King') {
               bossName = field.value;
             }
           }
