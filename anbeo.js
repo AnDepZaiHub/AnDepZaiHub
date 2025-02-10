@@ -1,4 +1,4 @@
-require('dotenv').config();  // Nạp các biến môi trường từ tệp .env
+require('dotenv').config();  // Nạp các biến môi trường từ tệp .env cc
 
 const express = require('express');
 const { Client, GatewayIntentBits } = require('discord.js');
