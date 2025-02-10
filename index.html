@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Reload</title>
+</head>
+<body>
+  <h1>Waiting for data...</h1>
+
+  <script>
+    setInterval(() => {
+      fetch('/api/status')
+        .then(response => response.json())
+        .then(data => {
+          if (data.status === 'success') {
+            location.reload();
+          }
+        })
+        .catch(err => console.error(err));
+    }, 1000); // Kiểm tra mỗi 5 giây
+  </script>
+</body>
+</html>
