@@ -42,30 +42,36 @@ app.get('/api/status', async (req, res) => {
       });
     }
 
-    for (const message of messages.values()) {
-      for (const embed of message.embeds) {
-        for (const field of embed.fields) {
+    messages.each((message) => {
+      console.log(`Message content: ${message.content}`);
+      console.log(`Embeds: ${JSON.stringify(message.embeds)}`);
+
+      message.embeds.forEach((embed) => {
+        embed.fields.forEach((field) => {
           if (field.name === 'Job Id') jobId = field.value;
           if (field.name === 'Player Count') playerCount = field.value;
-          if (field.name === 'Boss Name' && field.value === 'Dough King') {
-            bossName = field.value;
+          if (field.name === 'Boss Name') {
+            if (field.value === 'Dough King') bossName = field.value;
           }
-        }
-      }
+        });
+      });
 
       if (jobId && playerCount && bossName) {
         return res.json({
           status: 'success',
-          data: { jobId, playerCount, bossName },
+          data: {
+            jobId,
+            playerCount,
+            bossName,
+          },
         });
       }
-    }
+    });
 
     return res.status(404).json({
       status: 'error',
       message: 'No relevant data found',
     });
-
   } catch (error) {
     return res.status(500).json({
       status: 'error',
