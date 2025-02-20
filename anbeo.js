@@ -4,7 +4,7 @@ const { Client, GatewayIntentBits } = require('discord.js');
 const NodeCache = require("node-cache");
 
 const app = express();
-const cache = new NodeCache({ stdTTL: 40 });
+const cache = new NodeCache({ stdTTL: 60 });
 
 const client = new Client({
   intents: [
